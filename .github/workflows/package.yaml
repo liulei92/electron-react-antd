@@ -19,7 +19,7 @@ jobs:
     # create a build matrix for jobs
     strategy:
       matrix:
-        os: [windows-latest, macOS-latest, ubuntu-latest]
+        os: [windows-latest] # , macOS-latest, ubuntu-latest
     
     # create steps
     steps:
@@ -36,25 +36,25 @@ jobs:
       # step3: npm insta
       - name: npm install
         run: |
-          yarn install
+          yarn run install
 
       # step4: build app for mac/win
       - name: build windows app
         if: matrix.os == 'windows-latest'
         run: |
-          yarn build
+          yarn run build
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # - name: build mac app
       #   if: matrix.os == 'macOS-latest'
       #   run: |
-      #     yarn build
+      #     yarn run build
 
       # - name: build ubuntu app
       #   if: matrix.os == 'ubuntu-latest'
       #   run: |
-      #     yarn build
+      #     yarn run build
 
       # step5: cleanup artifacts in release
       - name: cleanup artifacts
