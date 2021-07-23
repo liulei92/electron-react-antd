@@ -30,7 +30,7 @@ const config: Configuration = {
   },
   win: {
     icon: ICON_ICO,
-    target: ['nsis', 'msi', 'zip'],
+    target: ['nsis', 'zip'],
   },
   nsis: {
     shortcutName: productName, // 图标名称
@@ -57,8 +57,8 @@ const config: Configuration = {
   },
   linux: {
     icon: ICON_ICNS,
-    target: ['deb', 'rpm', 'AppImage'],
-    category: 'Development',
+    target: ['deb', 'AppImage'],
+    // category: 'Development',
   },
   // 更新配置
   // publish: [
