@@ -5,7 +5,10 @@
   "buildVersion": "0.0.1",
   "private": false,
   "main": "dist/main/main.js",
-  "author": "liulei92(origin author: lanten)",
+  "author": {
+    "name": "liulei92(origin author: lanten)",
+    "emial": "liulei81405025@gmail.com"
+  },
   "scripts": {
     "ts:dev": "ts-node -P build/tsconfig.json build/tasks/dev-server.ts",
     "ts:build": "ts-node -P build/tsconfig.json build/tasks/build.ts",
