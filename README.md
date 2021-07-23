@@ -52,7 +52,8 @@ npm run build
 
 Please check the `release` folder after the build is complete.
 
-
+## Git Actions
+[Actions](https://zhuanlan.zhihu.com/p/164901026)
 
 ## License
 [MIT](./LICENSE)

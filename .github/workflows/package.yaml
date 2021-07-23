@@ -59,9 +59,13 @@ jobs:
       #     yarn run build
 
       # step5: cleanup artifacts in release
-      - name: cleanup artifacts
+      # - name: cleanup artifacts
+      #   run: |
+      #     npx rimraf "release/**/!(*.exe|*.dmg|*.AppImage)"
+      - name: cleanup artifacts for windows
+        if: matrix.os == 'windows-latest'
         run: |
-          npx rimraf "release/!(*.exe|*.dmg)"
+          npx rimraf "release/**/!(*.exe)"
 
       # step6: upload artifacts
       - name: upload artifacts
