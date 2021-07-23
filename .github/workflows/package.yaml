@@ -4,8 +4,10 @@ name: 云端根据tag进行构建和上传release
 # Workflow's trigger
 on:
   push:
-    tags:
-      - "v*.*.*"
+    # tags:
+    #   - "v*.*.*"
+    branches:
+      - master 
 # Workflow's jobs
 jobs:
   # job's id
@@ -36,13 +38,13 @@ jobs:
       # step3: npm insta
       - name: npm install
         run: |
-          yarn run install
+          yarn install
 
       # step4: build app for mac/win
       - name: build windows app
         if: matrix.os == 'windows-latest'
         run: |
-          yarn run build
+          yarn build
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
