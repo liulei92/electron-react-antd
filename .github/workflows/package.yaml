@@ -77,4 +77,4 @@ jobs:
         with:
           files: 'release/**'
         env:
-          GH_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ELECTRON_TOKEN }}
