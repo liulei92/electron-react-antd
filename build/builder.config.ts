@@ -26,8 +26,8 @@ const config: Configuration = {
   asar: false,
   directories: {
     buildResources: 'assets',
-    // output: path.join(buildConfig.release),
-    output: path.join(buildConfig.release, `${productName}-release-${version}.${buildVersion}`),
+    output: path.join(buildConfig.release),
+    // output: path.join(buildConfig.releas1e, `${productName}-release-${version}.${buildVersion}`),
   },
   win: {
     icon: ICON_ICO,
