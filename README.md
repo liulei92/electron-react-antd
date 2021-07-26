@@ -57,3 +57,15 @@ Please check the `release` folder after the build is complete.
 
 ## License
 [MIT](./LICENSE)
+
+## GIT
+```
+git commit -am "update yaml"
+
+git tag -a v1.0.01 -m "update yaml"
+git tag -d v1.0.01 删除本地tag
+git push origin :refs/tags/v1.0.01 删除远程tag
+
+git push && git push origin v1.0.01
+
+```

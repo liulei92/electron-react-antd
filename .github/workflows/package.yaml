@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-2019, macos-10.15]
+        os: [windows-2019, macos-10.15, ubuntu-16.04] # windows-latest , macos-latest, ubuntu-latest
 
     # create steps
     steps:
@@ -52,16 +52,28 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.github_token }}
 
+      - name: build ubuntu app
+        if: matrix.os == 'ubuntu-16.04'
+        run: |
+          npm run build
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
+
       # step5: cleanup artifacts in release
       - name: cleanup artifacts for windows
         if: matrix.os == 'windows-2019'
         run: |
-          npx rimraf "release/!(*.exe)"
+          npx rimraf "release/**/!(*.exe)"
 
       - name: cleanup artifacts for macosZ
         if: matrix.os == 'macos-10.15'
         run: |
-          npx rimraf "release/!(*.dmg)"
+          npx rimraf "release/**/!(*.dmg)"
+
+      - name: cleanup artifacts for macosZ
+        if: matrix.os == 'ubuntu-16.04'
+        run: |
+          npx rimraf "release/**/!(*.AppImage)"
 
       # step6: upload artifacts
       - name: upload artifacts
@@ -75,6 +87,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: 'release/**'
+          files: 'release/**/**'
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }} # GITHUB_TOKEN

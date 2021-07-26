@@ -19,15 +19,15 @@ const {
 
 const config: Configuration = {
   productName, // 项目名 这也是生成的exe文件的前缀名
-  buildVersion,
+  // buildVersion,
   appId, // 包名 com.xxx.xxxxx
   copyright: '2021', //版权  信息
   files: ['dist', 'assets', 'package.json'],
   asar: false,
   directories: {
     buildResources: 'assets',
-    output: path.join(buildConfig.release),
-    // output: path.join(buildConfig.release, `${productName}-release-${version}.${buildVersion}`),
+    // output: path.join(buildConfig.release),
+    output: path.join(buildConfig.release, `${productName}-release-${version}.${buildVersion}`),
   },
   win: {
     icon: ICON_ICO,
@@ -58,7 +58,7 @@ const config: Configuration = {
   },
   linux: {
     icon: ICON_ICNS,
-    target: ['deb', 'AppImage'],
+    target: ['AppImage'], // 'deb',
     // category: 'Development',
   },
   // 更新配置
