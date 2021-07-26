@@ -43,14 +43,14 @@ jobs:
         run: |
           npm run build
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.github_token }}
 
       - name: build mac app
         if: matrix.os == 'macos-10.15'
         run: |
           npm run build
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.github_token }}
 
       # step5: cleanup artifacts in release
       - name: cleanup artifacts for windows
@@ -77,4 +77,4 @@ jobs:
         with:
           files: 'release/**'
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.github_token }}
